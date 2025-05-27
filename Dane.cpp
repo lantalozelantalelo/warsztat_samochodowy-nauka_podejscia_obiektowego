@@ -94,7 +94,6 @@ size_t gen_dataCenaCzesci()
 
 void gen_data(size_t& num)
 {
-    // bez static pocz�tkowy stan random_device b�dzie takim sam przy ka�dym uruchomieniu
     static std::random_device rd;
     static std::default_random_engine dfe(rd());
     static std::uniform_int_distribution<int> rozmiar(50, 100);

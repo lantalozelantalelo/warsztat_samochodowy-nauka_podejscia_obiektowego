@@ -8,18 +8,6 @@
 #include "Naprawa.h"
 #include "Dane.h"
 
-/*
-Naprawa& operator=(const Naprawa& right)
-{
-    if (this != &right)
-    {
-        this->~Naprawa();
-        this->Naprawa(right);
-    }
-
-    return *this;
-}
-*/
 std::ostream& Naprawy::operator<<(std::ostream& output, const Naprawy::Naprawa& naprawa)
 {
     output << "Ilosc czesci: " << naprawa.getIlosc() << std::endl;
@@ -28,7 +16,7 @@ std::ostream& Naprawy::operator<<(std::ostream& output, const Naprawy::Naprawa& 
         output << "Czesc " << i + 1 << ": " << *naprawa.getCzesc(i) << std::endl;
     }
     output << "Koszt: " << naprawa.getKoszt() << std::endl;
-    //output << "Samochod: " << *naprawa.getSamochod() << std::endl;
+    output << "Samochod: " << *naprawa.getSamochod() << std::endl;
 
     return output;
 }
@@ -73,46 +61,7 @@ void Naprawy::Naprawa::dodajNaprawe()
 {
     stworzCzesci();
 }
-/*
-void Naprawa::dodajNaprawy(Naprawa*** naprawy, size_t liczbaKlientow)
-{
-    for (size_t i = 0; i < liczbaKlientow; i++)
-    {
-        Klient* klient = naprawy[i][0]->getSamochod()->getKlient();
-        size_t liczbaSamochodow = klient->getLiczbaSamochodow();
 
-        for (size_t j = 0; j < liczbaSamochodow; j++)
-        {
-            naprawy[i][j]->dodajNaprawe();
-        }
-    }
-}
-
-double Naprawy::Naprawa::sumaCzesciC() const
-{
-    double suma = 0;
-    for (size_t i = 0; i < getIlosc(); ++i) {
-        suma += czesci[i]->getCena();
-    }
-    return suma;
-}
-
-double Naprawy::Naprawa::sumaCzesci()
-{
-    double suma = 0;
-    for (size_t i = 0; i < getIlosc(); ++i) {
-        suma += czesci[i]->getCena();
-    }
-    return suma;
-}
-
-double Naprawy::Naprawa::sumaCzesciC() const
-{
-    SumaCen suma_cen;
-    std::for_each(czesci.begin(), czesci.end(), [&suma_cen](const Naprawa::Czesc* czesc) { suma_cen(czesc); });
-    return suma_cen.suma;
-}
-*/
 double Naprawy::Naprawa::sumaCzesci()
 {
     Naprawy::SumaCen suma_cen;
@@ -148,16 +97,3 @@ double Naprawy::Naprawa::kosztNaprawy()
 
     return koszt;
 }
-
-/*
-Naprawa::Naprawa(const Naprawa& right)
-{
-    ilosc_czesci = right.ilosc_czesci;
-    koszt = right.koszt;
-    samochod = new Samochod(*right.samochod);
-    czesci = new Czesc * [ilosc_czesci];
-    for (size_t i = 0; i < ilosc_czesci; ++i) {
-        czesci[i] = new Czesc(*right.czesci[i]);
-    }
-}
-*/

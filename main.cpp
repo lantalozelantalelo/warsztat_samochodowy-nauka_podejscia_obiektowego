@@ -17,7 +17,7 @@ int main()
     while (1)
     {
         std::cout << "\nMenu:\n";
-        std::cout << "0 - Zakoncz dzialanie 1 - Wypisz dane 2 - Dodaj klienta 3 - Usun klienta 4 - Srednia cena czesci dla naprawy 5 - Posortuj czesci \n";
+        std::cout << "0 - Zakoncz dzialanie 1 - Wypisz dane 2 - Dodaj klienta 3 - Usun klienta 4 - Zatrudnij mechanika 5 - Stworz naprawe 6 - Wypisz naprawy 7 - Wypisz koszty napraw dla klienta 8 - Oblicz premie dla mechanika 9 - Wypisz napawy ze szczegolami\n";
         std::cin >> wybor;
 
         switch (wybor)
@@ -35,37 +35,18 @@ int main()
             Warsztat::get_warsztat()->zatrudnij_mechanika();
             break;
         case 5:
-            std::cout << "indeks: ";
-            std::cin >> ind;
-            //Warsztat::get_warsztat()->srednia_cena(Warsztat::get_warsztat()->getKlienciTab()->getKlient(ind), ind);
-            ind = 0;
-            break;
-        case 6:
-            //Warsztat::get_warsztat()->posortuj_czesci();
-            std::cout << "Czesci zostaly posortowane" << std::endl;
-            break;
-        case 7:
-            std::cout << "Indeks mechanika: ";
-            std::cin >> ind1;
-            std::cout << "Indeks klienta: ";
-            std::cin >> ind;
-            //Warsztat::get_warsztat()->klient_do_mechanika(ind, ind1);
-            ind = 0;
-            ind1 = 0;
-            break;
-        case 8:
             if (Warsztat::get_warsztat()->get_mechanik() != nullptr) Warsztat::get_warsztat()->get_mechanik()->diagnoza();
             break;
-        case 9:
+        case 6:
             Warsztat::get_warsztat()->wypisz_naprawy();
             break;
-        case 10:
+        case 7:
             Warsztat::get_warsztat()->get_klient()->diagnoza();
             break;
-        case 11:
+        case 8:
             Warsztat::get_warsztat()->get_mechanik()->obliczPremie();
             break;
-        case 12:
+        case 9:
             Warsztat::get_warsztat()->wypisz_naprawy_map();
             break;
         default: std::cout << "\n";

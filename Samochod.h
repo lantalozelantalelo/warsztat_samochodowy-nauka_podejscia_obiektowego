@@ -68,7 +68,7 @@ public:
     {
         naprawa = naprawa1;
     }
-    Naprawy::Naprawa* getNaprawa() //const
+    Naprawy::Naprawa* getNaprawa()
     {
         return naprawa;
     }

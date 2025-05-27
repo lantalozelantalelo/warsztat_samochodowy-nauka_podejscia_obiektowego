@@ -104,29 +104,6 @@ std::ostream& Osoby::operator<<(std::ostream& output, const Osoba& osoba)
     return output;
 }
 
-/*
-Klient& Osoby::Klient::operator=(const Osoby::Klient& right)
-{
-    if (this != &right)
-    {
-        this->Klient::~Klient();
-        this->Klient::Klient(right);
-    }
-
-    return *this;
-}
-
-Klient::Klient(const Klient& right)
-{
-    godnosc = right.godnosc;
-    nr_telefonu = right.nr_telefonu;
-    liczba_samochodow = right.liczba_samochodow;
-    samochody = new Samochod * [liczba_samochodow];
-    for (size_t i = 0; i < liczba_samochodow; i++) {
-        samochody[i] = new Samochod(*right.samochody[i]);
-    }
-}
-*/
 Osoby::Klient::~Klient()
 {
     for (Samochod* samochod : samochody)

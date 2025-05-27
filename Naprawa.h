@@ -20,7 +20,7 @@ namespace Naprawy {
         class Czesc
         {
             friend class Naprawa;
-            friend struct SumaCen1;
+            friend struct SumaCen;
             std::string nazwa;
             size_t cena = 0;
             double suma = 0;
@@ -50,33 +50,24 @@ namespace Naprawy {
         };
         size_t ilosc_czesci = 0;
         mutable double koszt = 0;
-        //bool naprawione = false;
         std::vector<std::unique_ptr<Czesc>> czesci;
         Samochod* samochod = nullptr;
         Osoby::Mechanik* mechanik = nullptr;
         void stworzCzesci();
         friend struct SumaCen;
-        friend struct SumaCen1;
 
     public:
 
         Naprawa(Samochod* samochod1) : samochod(samochod1) {}
-        //Naprawa() = default;
-        //Naprawa(const Naprawa& right);
         ~Naprawa();
-        //void usunNaprawe(Naprawa*** naprawy, size_t rozmiar, size_t numerNaprawy);
         void pokaz() const;
-        //void stworz(Naprawa***& naprawy, Klient** klienci, size_t rozmiar);
         void dodajNaprawe();
-        void dodajNaprawy(Naprawa*** naprawy, size_t liczbaKlientow);
         void dodajCzesc();
-        void dodajCzesci();
         void usunCzesc(size_t indeksCzesci);
         double sumaCzesci();
         double sredniaCzesci();
         void posortujCzesciPoCenie();
         double kosztNaprawy();
-        double sumaCzesciC() const;
         void setIlosc(const size_t& ilosc_czesci1)
         {
             ilosc_czesci = ilosc_czesci1;
@@ -109,32 +100,7 @@ namespace Naprawy {
         {
             return mechanik;
         }
-        //Naprawa& operator=(const Naprawa& right);
         friend std::ostream& operator<<(std::ostream& output, const Naprawa& naprawa);
-        /*
-        Naprawa(Naprawa&& other) noexcept : ilosc_czesci(other.ilosc_czesci), koszt(other.koszt), czesci(other.czesci), samochod(other.samochod)
-        {
-            other.ilosc_czesci = 0;
-            other.koszt = 0;
-            other.czesci = nullptr;
-            other.samochod = nullptr;
-        }
-        Naprawa& operator=(Naprawa&& other) noexcept
-        {
-            if (this != &other) {
-                ilosc_czesci = other.ilosc_czesci;
-                koszt = other.koszt;
-                czesci = other.czesci;
-                samochod = other.samochod;
-
-                other.ilosc_czesci = 0;
-                other.koszt = 0;
-                other.czesci = nullptr;
-                other.samochod = nullptr;
-            }
-            return *this;
-        }
-        */
     };
     std::ostream& operator<<(std::ostream& output, const Naprawa& naprawa);
 
@@ -147,14 +113,5 @@ namespace Naprawy {
             suma += czesc->getCena();
         }
     };
-    /*
-    struct SumaCen1
-    {
-        void operator()(Naprawa::Czesc* czesc)
-        {
-            czesc->suma += czesc->getCena();
-        }
-    };
-    */
 }
 

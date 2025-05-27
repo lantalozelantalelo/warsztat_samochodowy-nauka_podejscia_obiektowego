@@ -42,12 +42,8 @@ public:
     Naprawy::Naprawa* stworz_naprawe();
     Naprawy::Naprawa* znajdz_naprawe(const std::string& numerRejestracyjny) const;
     void wypisz_naprawy_map();
-    //void dodaj_mechanikow();
-    //void klient_do_mechanika(size_t ind, size_t ind1);
     void wypisz_naprawy();
     friend std::ostream& operator<<(std::ostream& output, const Warsztat& warsztat);
-    void srednia_cena(Klient* klient, size_t ind);
-    //void posortuj_czesci();
     Osoby::Klient* get_klient() const;
     Osoby::Mechanik* get_mechanik() const;
     Osoby::Osoba* getOsoba(size_t i) const
